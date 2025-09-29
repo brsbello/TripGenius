@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "TripGenius"
 include(":app")
- 
+include(":shared")

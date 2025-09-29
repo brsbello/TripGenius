@@ -83,4 +83,7 @@ dependencies {
     // --- Debug tools ---
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // --- Shared Module ---
+    implementation(project(":shared"))
 }
