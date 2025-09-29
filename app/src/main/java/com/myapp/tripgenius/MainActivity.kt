@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import com.myapp.tripgenius.shared.HelloShared
 import androidx.compose.ui.tooling.preview.Preview
 import com.myapp.tripgenius.ui.theme.TripGeniusTheme
 
@@ -19,21 +21,28 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TripGeniusTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                GreetingScreen()
             }
         }
     }
 }
 
 @Composable
+fun GreetingScreen(modifier: Modifier = Modifier) {
+    val message = remember { HelloShared().greet() }
+
+    Scaffold(modifier = modifier.fillMaxSize()) { innerPadding ->
+        Greeting(
+            name = message,
+            modifier = Modifier.padding(innerPadding)
+        )
+    }
+}
+
+@Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = name,
         modifier = modifier
     )
 }
@@ -42,6 +51,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     TripGeniusTheme {
-        Greeting("Android")
+        Greeting("Hello from shared module!")
     }
 }
