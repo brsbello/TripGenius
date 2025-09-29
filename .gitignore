@@ -1,34 +1,99 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
 # Gradle files
 .gradle/
 build/
 
 # Local configuration file (sdk path, etc)
 local.properties
+# =========================
+#  Gradle & Build outputs
+# =========================
+.gradle/
+build/
+**/build/
+out/
+!gradle/wrapper/gradle-wrapper.jar  # mantém o wrapper
 
-# Log/OS Files
-*.log
-
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.aab
-*.apk
-output-metadata.json
-
-# IntelliJ
-*.iml
+# =========================
+#  IDE / Project settings
+# =========================
 .idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+*.iml
+*.ipr
+*.iws
 
-# Keystore files
-*.jks
+# Android Studio specific
+local.properties
+captures/
+
+# IntelliJ caches
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/gradle.xml
+.idea/**/libraries
+.idea/**/caches
+.idea/**/navEditor.xml
+.idea/**/assetWizardSettings.xml
+
+# =========================
+#  OS / System files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+#  Android Artifacts
+# =========================
+*.apk
+*.aab
+output-metadata.json
 *.keystore
+*.jks
 
-# Google Services (e.g. APIs or Firebase)
+# =========================
+#  Kotlin Multiplatform (iOS)
+# =========================
+iosApp/Pods/
+iosApp/Podfile.lock
+iosApp/DerivedData/
+*.xcuserstate
+*.xcworkspace
+
+# =========================
+#  Logs & profiling
+# =========================
+*.log
+*.hprof
+
+# =========================
+#  Secrets & env files
+# =========================
+*.env
+secrets/
 google-services.json
 
-# Android Profiling
-*.hprof
+# =========================
+#  External builds
+# =========================
+.externalNativeBuild/
+.cxx/
+
+# =========================
+#  Spring Boot (caso adicione backend)
+# =========================
+/target/
+*.war
+*.ear
