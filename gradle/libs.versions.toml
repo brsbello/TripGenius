@@ -2,11 +2,14 @@
 # --- Build & Kotlin ---
 agp = "8.13.0"
 kotlin = "2.2.20"
+ksp = "2.2.20-2.0.3"
 
 # --- AndroidX ---
 coreKtx = "1.17.0"
 lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
+koinAndroid = "3.4.3"
+koinAndroidxCompose = "3.4.3"
 
 # --- Compose ---
 composeBom = "2025.09.01"
@@ -18,6 +21,10 @@ espressoCore = "3.7.0"
 
 # --- KMP libraries ---
 coroutines = "1.10.2"
+navigationCompose = "2.9.5"
+roomCompiler = "2.8.1"
+roomKtx = "2.8.1"
+roomRuntime = "2.8.1"
 serialization = "1.9.0"
 kotlinStdlib = "2.2.20"
 kotlinTest = "2.2.20"
@@ -41,11 +48,17 @@ androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-te
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 
 # --- Testing ---
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 # --- KMP / Shared Module ---
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlinStdlib" }
@@ -60,3 +73,4 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 android-lint = { id = "com.android.lint", version.ref = "agp" }  # para shared module
+android-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

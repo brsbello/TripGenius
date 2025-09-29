@@ -1,5 +1,6 @@
 package com.myapp.tripgenius.presentation.trip
 
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,21 +13,52 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.myapp.tripgenius.shared.models.Trip
+import com.myapp.tripgenius.shared.domain.model.Trip
 
 @Composable
-fun TripItem(trip: Trip) {
+fun TripItem(
+    trip: Trip,
+    onLongPress: (() -> Unit)? = null
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp),
-        elevation = CardDefaults.cardElevation(4.dp)
+            .padding(8.dp)
+            .combinedClickable(
+                onClick = {},
+                onLongClick = { onLongPress?.invoke() }
+            ),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(trip.name, style = MaterialTheme.typography.titleMedium)
-            Text(trip.location, style = MaterialTheme.typography.bodyMedium)
+            Text(
+                text = trip.title,
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurface
+            )
             Spacer(modifier = Modifier.height(4.dp))
-            Text(trip.description, style = MaterialTheme.typography.bodySmall)
+            Text(
+                text = trip.destination,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = trip.description,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            trip.budget.let {
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = "Orçamento: R$ $it",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary
+                )
+            }
         }
     }
 }
